@@ -35,15 +35,19 @@ class CommentViewSet(viewsets.ModelViewSet):
             author=self.request.user, post=post)
 
 
-class GroupViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
-                   viewsets.GenericViewSet):
+class ListCreateViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
+                        viewsets.GenericViewSet):
+    pass
+
+
+class GroupViewSet(ListCreateViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly,)
 
 
-class FollowViewSet(GroupViewSet):
+class FollowViewSet(ListCreateViewSet):
     serializer_class = FollowSerializer
     permission_classes = (
         permissions.IsAuthenticated,)
