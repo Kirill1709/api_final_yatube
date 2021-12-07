@@ -15,7 +15,7 @@
 - Django REST Framework
 - SQLite
 
-### Зайдите на север и клонируйте проект 
+### Зайдите на сервер и клонируйте проект 
 ```
 git clone git@github.com:Kirill1709/api_final_yatube.git
 ```
